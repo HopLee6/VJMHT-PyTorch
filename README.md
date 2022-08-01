@@ -26,7 +26,7 @@ Moreover, Transformer-based video representation reconstruction is introduced to
 
 Download the [datasets](https://unimelbcloud-my.sharepoint.com/:f:/g/personal/haopengl1_student_unimelb_edu_au/El305SWgUh5GtyFeq3sMpsEBijWY9CkQ3hOhRElRMm2dMg?e=155YfL) to ``datasets/``.
 
-## Testing Model
+## Evaluation
 
 Download [our models](https://unimelbcloud-my.sharepoint.com/:f:/g/personal/haopengl1_student_unimelb_edu_au/Eu1HIbsLHYZBuxVAQLk8cnYBr2pTL7KVj0LURYWNY-RwZw?e=gXgVzw) to ``results/``.
 
@@ -46,7 +46,7 @@ $ python main.py -c configs/tvsum_can.py --eval
 
 The results are saved in ``results/TVSUM_CAN``.
 
-## Training Model
+## Training
 Run the following command to train the model: 
 
 ```
@@ -66,10 +66,11 @@ The trained models and results are saved in ``results/TVSUM_CAN``.
 [Haopeng Li](mailto:haopeng.li@student.unimelb.edu.au)
 
 
-
 ## License and Citation
 
 The use of this code is RESTRICTED to **non-commercial research and educational purposes**.
+
+If you use this code or reference our paper in your work please cite this publication as:
 
 ```
 @article{li2022video,
@@ -82,5 +83,5 @@ The use of this code is RESTRICTED to **non-commercial research and educational 
 ```
 ## Acknowledgement
 
-The codes are developed based on [VASNet](https://github.com/ok1zjf/VASNet).
+The code is developed based on [VASNet](https://github.com/ok1zjf/VASNet).
 
