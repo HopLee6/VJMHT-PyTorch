@@ -2,10 +2,6 @@ from __future__ import absolute_import
 import os
 import sys
 import errno
-<<<<<<< HEAD
-=======
-import shutil
->>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
 import json
 import os.path as osp
 
@@ -24,11 +20,7 @@ def mkdir_if_missing(directory):
 class AverageMeter(object):
     """Computes and stores the average and current value.
 
-<<<<<<< HEAD
     Code imported from https://github.com/pytorch/examples/blob/master/imagenet/main.py#L247-L262
-=======
-       Code imported from https://github.com/pytorch/examples/blob/master/imagenet/main.py#L247-L262
->>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
     """
 
     def __init__(self):
@@ -47,11 +39,7 @@ class AverageMeter(object):
         self.avg = self.sum / self.count
 
 
-<<<<<<< HEAD
 def save_checkpoint(state, fpath="checkpoint.pth.tar"):
-=======
-def save_checkpoint(state, fpath='checkpoint.pth.tar'):
->>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
     mkdir_if_missing(osp.dirname(fpath))
     torch.save(state, fpath)
 
@@ -67,11 +55,7 @@ class Logger(object):
         self.file = None
         if fpath is not None:
             mkdir_if_missing(os.path.dirname(fpath))
-<<<<<<< HEAD
             self.file = open(fpath, "w")
-=======
-            self.file = open(fpath, 'w')
->>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
 
     def __del__(self):
         self.close()
@@ -100,27 +84,12 @@ class Logger(object):
 
 
 def read_json(fpath):
-<<<<<<< HEAD
     with open(fpath, "r") as f:
-=======
-    with open(fpath, 'r') as f:
->>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
         obj = json.load(f)
     return obj
 
 
 def write_json(obj, fpath):
     mkdir_if_missing(osp.dirname(fpath))
-<<<<<<< HEAD
     with open(fpath, "w") as f:
         json.dump(obj, f, indent=4, separators=(",", ": "))
-=======
-    with open(fpath, 'w') as f:
-        json.dump(obj, f, indent=4, separators=(',', ': '))
-
-
-
-
-
-
->>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad

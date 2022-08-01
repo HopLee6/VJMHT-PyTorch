@@ -8,17 +8,9 @@ import random
 import importlib
 import numpy as np
 import torch
-<<<<<<< HEAD
 from utils.sys_utils import *
 from utils.vsum_tools import *
 from tools.funcs import *
-=======
-import torch.nn.init as init
-from utils.sys_utils import *
-from utils.vsum_tools import *
-from tools.funcs import *
-import copy
->>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
 
 
 class sumnet:
