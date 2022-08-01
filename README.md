@@ -44,6 +44,8 @@ Example for testing the model trained on TVSum in the canonical setting:
 $ python main.py -c configs/tvsum_can.py --eval
 ```
 
+The results are saved in ``results/TVSUM_CAN``.
+
 ## Training Model
 Run the following command to train the model: 
 
@@ -56,6 +58,9 @@ Example for training the model on TVSum in the canonical setting:
 ```
 $ python main.py -c configs/tvsum_can.py
 ```
+
+The trained models and results are saved in ``results/TVSUM_CAN``.
+
 
 ## Contact
 [Haopeng Li](mailto:haopeng.li@student.unimelb.edu.au)
