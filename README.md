@@ -33,25 +33,25 @@ Download [our models](https://unimelbcloud-my.sharepoint.com/:f:/g/personal/haop
 Run the following command to test our models.
 
 ```
-$ python main.py -c configs/cfg_file.py --eval
+$ python main.py -c configs/dataset_setting.py --eval
 ```
 
-where ``cfg_file.py`` is the configeration file that can be found in ``configs/``. The results are saved in ``results/CFG_FILE/``.
+where ``dataset_setting.py`` is the configuration file that can be found in ``configs/``. The results are saved in ``results/DATASET_SETTING/``.
 
-Example:
+Example for testing the model trained on TVSum in the canonical setting: 
 
 ```
 $ python main.py -c configs/tvsum_can.py --eval
 ```
 
 ## Training Model
-Run the following command to train the model.
+Run the following command to train the model: 
 
 ```
-$ python main.py -c configs/CFG_file
+$ python main.py -c configs/dataset_setting.py
 ```
 
-Example:
+Example for training the model on TVSum in the canonical setting: 
 
 ```
 $ python main.py -c configs/tvsum_can.py
