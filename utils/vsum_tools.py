@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 """'
+=======
+''''
+>>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
 Courtesy of KaiyangZhou
 https://github.com/KaiyangZhou/pytorch-vsumm-reinforce
 
@@ -12,6 +16,7 @@ https://github.com/KaiyangZhou/pytorch-vsumm-reinforce
 Modifications by Jiri Fajtl
 - knapsack replaced with knapsack_ortools
 - added evaluate_user_summaries() for user summaries ground truth evaluation
+<<<<<<< HEAD
 """
 
 import numpy as np
@@ -22,6 +27,18 @@ import math
 def generate_summary(
     ypred, cps, n_frames, nfps, positions, proportion=0.15, method="knapsack"
 ):
+=======
+'''
+
+import numpy as np
+#from knapsack import knapsack_dp
+from utils.knapsack import knapsack_ortools
+import math
+import pdb
+
+
+def generate_summary(ypred, cps, n_frames, nfps, positions, proportion=0.15, method='knapsack'):
+>>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
     """Generate keyshot-based video summary i.e. a binary vector.
     Args:
     ---------------------------------------------
@@ -40,7 +57,11 @@ def generate_summary(
     if positions[-1] != n_frames:
         positions = np.concatenate([positions, [n_frames]])
     for i in range(len(positions) - 1):
+<<<<<<< HEAD
         pos_left, pos_right = positions[i], positions[i + 1]
+=======
+        pos_left, pos_right = positions[i], positions[i+1]
+>>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
         if i == len(ypred):
             frame_scores[pos_left:pos_right] = 0
         else:
@@ -48,16 +69,27 @@ def generate_summary(
 
     seg_score = []
     for seg_idx in range(n_segs):
+<<<<<<< HEAD
         start, end = int(cps[seg_idx, 0]), int(cps[seg_idx, 1] + 1)
+=======
+        start, end = int(cps[seg_idx,0]), int(cps[seg_idx,1]+1)
+>>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
         scores = frame_scores[start:end]
         seg_score.append(float(scores.mean()))
 
     limits = int(math.floor(n_frames * proportion))
 
+<<<<<<< HEAD
     if method == "knapsack":
         # picks = knapsack_dp(seg_score, nfps, n_segs, limits)
         picks = knapsack_ortools(seg_score, nfps, n_segs, limits)
     elif method == "rank":
+=======
+    if method == 'knapsack':
+        #picks = knapsack_dp(seg_score, nfps, n_segs, limits)
+        picks = knapsack_ortools(seg_score, nfps, n_segs, limits)
+    elif method == 'rank':
+>>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
         order = np.argsort(seg_score)[::-1].tolist()
         picks = []
         total_len = 0
@@ -68,7 +100,11 @@ def generate_summary(
     else:
         raise KeyError("Unknown method {}".format(method))
 
+<<<<<<< HEAD
     summary = np.zeros((1), dtype=np.float32)  # this element should be deleted
+=======
+    summary = np.zeros((1), dtype=np.float32) # this element should be deleted
+>>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
     for seg_idx in range(n_segs):
         nf = nfps[seg_idx]
         if seg_idx in picks:
@@ -77,11 +113,19 @@ def generate_summary(
             tmp = np.zeros((nf), dtype=np.float32)
         summary = np.concatenate((summary, tmp))
 
+<<<<<<< HEAD
     summary = np.delete(summary, 0)  # delete the first element
     return summary
 
 
 def evaluate_summary(machine_summary, user_summary, eval_metric="avg"):
+=======
+    summary = np.delete(summary, 0) # delete the first element
+    return summary
+
+
+def evaluate_summary(machine_summary, user_summary, eval_metric='avg'):
+>>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
     """Compare machine summary with user summary (keyshot-based).
     Args:
     --------------------------------
@@ -93,7 +137,11 @@ def evaluate_summary(machine_summary, user_summary, eval_metric="avg"):
     machine_summary = machine_summary.astype(np.float32)
     user_summary = user_summary.astype(np.float32)
     # pdb.set_trace()
+<<<<<<< HEAD
     n_users, n_frames = user_summary.shape
+=======
+    n_users,n_frames = user_summary.shape
+>>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
 
     # binarization
     machine_summary[machine_summary > 0] = 1
@@ -110,31 +158,55 @@ def evaluate_summary(machine_summary, user_summary, eval_metric="avg"):
     rec_arr = []
 
     for user_idx in range(n_users):
+<<<<<<< HEAD
         gt_summary = user_summary[user_idx, :]
+=======
+        gt_summary = user_summary[user_idx,:]
+>>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
         overlap_duration = (machine_summary * gt_summary).sum()
         precision = overlap_duration / (machine_summary.sum() + 1e-8)
         recall = overlap_duration / (gt_summary.sum() + 1e-8)
         if precision == 0 and recall == 0:
+<<<<<<< HEAD
             f_score = 0.0
+=======
+            f_score = 0.
+>>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
         else:
             f_score = (2 * precision * recall) / (precision + recall)
         f_scores.append(f_score)
         prec_arr.append(precision)
         rec_arr.append(recall)
+<<<<<<< HEAD
     if eval_metric == "avg":
         final_f_score = np.mean(f_scores)
         final_prec = np.mean(prec_arr)
         final_rec = np.mean(rec_arr)
     elif eval_metric == "max":
+=======
+    if eval_metric == 'avg':
+        final_f_score = np.mean(f_scores)
+        final_prec = np.mean(prec_arr)
+        final_rec = np.mean(rec_arr)
+    elif eval_metric == 'max':
+>>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
         final_f_score = np.max(f_scores)
         max_idx = np.argmax(f_scores)
         final_prec = prec_arr[max_idx]
         final_rec = rec_arr[max_idx]
+<<<<<<< HEAD
 
     return final_f_score, final_prec, final_rec
 
 
 def evaluate_user_summaries(user_summary, eval_metric="avg"):
+=======
+    
+    return final_f_score, final_prec, final_rec
+
+
+def evaluate_user_summaries(user_summary, eval_metric='avg'):
+>>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
     """Compare machine summary with user summary (keyshot-based).
     Args:
     --------------------------------
@@ -155,25 +227,43 @@ def evaluate_user_summaries(user_summary, eval_metric="avg"):
 
     for user_idx in range(n_users):
         gt_summary = user_summary[user_idx, :]
+<<<<<<< HEAD
         for other_user_idx in range(user_idx + 1, n_users):
+=======
+        for other_user_idx in range(user_idx+1, n_users):
+>>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
             other_gt_summary = user_summary[other_user_idx, :]
             overlap_duration = (other_gt_summary * gt_summary).sum()
             precision = overlap_duration / (other_gt_summary.sum() + 1e-8)
             recall = overlap_duration / (gt_summary.sum() + 1e-8)
             # pdb.set_trace()
             if precision == 0 and recall == 0:
+<<<<<<< HEAD
                 f_score = 0.0
+=======
+                f_score = 0.
+>>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
             else:
                 f_score = (2 * precision * recall) / (precision + recall)
             f_scores.append(f_score)
             prec_arr.append(precision)
             rec_arr.append(recall)
+<<<<<<< HEAD
 
     if eval_metric == "avg":
         final_f_score = np.mean(f_scores)
         final_prec = np.mean(prec_arr)
         final_rec = np.mean(rec_arr)
     elif eval_metric == "max":
+=======
+ 
+
+    if eval_metric == 'avg':
+        final_f_score = np.mean(f_scores)
+        final_prec = np.mean(prec_arr)
+        final_rec = np.mean(rec_arr)
+    elif eval_metric == 'max':
+>>>>>>> d1a96e10480e3d10294c2ef1b61a8f5361e362ad
         final_f_score = np.max(f_scores)
         max_idx = np.argmax(f_scores)
         final_prec = prec_arr[max_idx]
