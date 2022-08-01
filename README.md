@@ -57,12 +57,12 @@ Example:
 $ python main.py -c configs/tvsum_can.py
 ```
 
-### Contact
+## Contact
 [Haopeng Li](mailto:haopeng.li@student.unimelb.edu.au)
 
 
 
-### License and Citation
+## License and Citation
 
 The use of this code is RESTRICTED to **non-commercial research and educational purposes**.
 
@@ -75,5 +75,7 @@ The use of this code is RESTRICTED to **non-commercial research and educational 
   publisher={IEEE}
 }
 ```
+## Acknowledgement
 
+The codes are developed based on [VASNet](https://github.com/ok1zjf/VASNet).
 
