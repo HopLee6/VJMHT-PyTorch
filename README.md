@@ -1,11 +1,9 @@
 # Video Joint Modelling Based on Hierarchical Transformer for Co-summarization (VJMHT)
- [Paper](https://ieeexplore.ieee.org/abstract/document/9808180/)
+ [Paper](https://arxiv.org/pdf/2112.13478.pdf)
 
 Haopeng Li, Qiuhong Ke, [Mingming Gong](https://mingming-gong.github.io/), [Rui Zhang](https://www.ruizhang.info/)
 
 IEEE Transactions on Pattern Analysis and Machine Intelligence
-
-
 
 
 ## Introduction
@@ -60,10 +58,6 @@ $ python main.py -c configs/tvsum_can.py
 ```
 
 The trained models and results are saved in ``results/TVSUM_CAN``.
-
-
-## Contact
-[Haopeng Li](mailto:haopeng.li@student.unimelb.edu.au)
 
 
 ## License and Citation
