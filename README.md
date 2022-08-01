@@ -1,7 +1,7 @@
 # Video Joint Modelling Based on Hierarchical Transformer for Co-summarization (VJMHT)
  [Paper](https://ieeexplore.ieee.org/abstract/document/9808180/)
 
-Haopeng Li, Qiuhong Ke, Mingming Gong, Rui Zhang
+Haopeng Li, Qiuhong Ke, [Mingming Gong](https://mingming-gong.github.io/), [Rui Zhang](https://www.ruizhang.info/)
 
 IEEE Transactions on Pattern Analysis and Machine Intelligence
 
