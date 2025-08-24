@@ -22,11 +22,11 @@ Moreover, Transformer-based video representation reconstruction is introduced to
 
 ## Data Preparation
 
-Download the [datasets](https://unimelbcloud-my.sharepoint.com/:f:/g/personal/haopengl1_student_unimelb_edu_au/El305SWgUh5GtyFeq3sMpsEBijWY9CkQ3hOhRElRMm2dMg?e=155YfL) to ``datasets/``.
+Download the [datasets](https://figshare.com/articles/dataset/datasets_zip/29974894) to ``datasets/``.
 
 ## Evaluation
 
-Download [our models](https://unimelbcloud-my.sharepoint.com/:f:/g/personal/haopengl1_student_unimelb_edu_au/Eu1HIbsLHYZBuxVAQLk8cnYBr2pTL7KVj0LURYWNY-RwZw?e=gXgVzw) to ``results/``.
+Download [our models](https://figshare.com/articles/journal_contribution/VJMHT_trained_Models/29974912?file=57382336) to ``results/``.
 
 Run the following command to test our models.
 
